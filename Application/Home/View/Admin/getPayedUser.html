@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>付款用户</title>
+	<style type="text/css">
+.pages a,.pages span{
+	padding:3px 5px;
+	background:#900;
+	color:#fff;
+	margin:0 5px;
+	border:1px solid #900;
+	text-decoration: none;
+}
+.pages a:hover,.pages span{
+	background:#fff;
+	color:#900;
+	border:1px solid #900;
+}
+	</style>
+</head>
+<body>
+	<div style="margin-left:300px;">共{$count}个付款健友</div>
+	<table width="800" cellpadding="5" cellspacing="0" align="center" border="1px solid black">
+		<tr>
+			<td>编号</td>
+			<td>用户名</td>
+			<td>姓名</td>
+			<td>电话</td>
+			<td>昵称</td>
+			<td>付款时间</td>
+			<td>金额</td>
+			<td>所选教练</td>
+		</tr>
+		<foreach name="result" item="v">
+		<tr>
+			<td>{$offset++}</td>
+			<td>{$v.username}</td>
+			<td>{$v.name}</td>
+			<td>{$v.phone}</td>
+			<td>{$v.nicker}</td>
+			<td>{$v.pay_time}</td>
+			<td>{$v.money}</td>
+			<td>{$v.coach}</td>
+		</tr>
+	</foreach>
+			<tr>
+			<td colspan="8" class="pages" align="center">
+				{$pageList}
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

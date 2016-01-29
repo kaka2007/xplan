@@ -1,0 +1,68 @@
+<html>
+
+<center><h1>教练端后台接口文档</h1></center>
+
+<p>
+	<h1>接口说明</h1>
+	=================================================================================<br>
+	所有的接口都是 http://123.57.135.102/xplan/index.php/home + /模块/接口 <br>
+	如 http://123.57.135.102/xplan/index.php/home/User/login <br>
+	请求体的格式为json格式,接口里面没有具体说明，都是POST请求,编码都是UTF-8
+	<br>
+	=================================================================================
+</p>
+
+<p>
+	<h3>登录  /User/login </h3>
+	param: <br>username 用户名<br>password 密码<br><br>
+	reply: <br>错误: {"error": {"errno": -202,"errmsg": "username or password is empty","usermsg": "用户名或者密码为空"}} <br>正常:{"errno":0,"xtoken":"888b6736ba82eb7a9d94e7099438aec3","data":{"uid":"42","nicker":"\u4e5d\u8def","header":"http:\/\/plan-room.b0.upaiyun.com\/0473dfc5b717431ac9cd1d65750c2ad5.jpg"}}
+</p>
+
+<p>
+	<h3>获取客户  /Coach/getMyCustomer </h3>
+	{"errno":0,"user_list":[{"id":"37","name":"\u5f20\u5c0f\u660e","header":"http:\/\/123.57.135.102\/xplan_headers\/aa.jpg","birthday":"0","gender":"0","height":"165","weight":"120","course_time":"0","pid":"1","pay_time":"1445476390","status":"2","iscontacted":"0","isfinished":"0"},{"id":"38","name":"\u674e\u5c0f\u4e3d","header":"http:\/\/123.57.135.102\/xplan_headers\/bb.jpg","birthday":"0","gender":"1","height":"160","weight":"110","course_time":"0","pid":"1","pay_time":"1445478390","status":"2","iscontacted":"0","isfinished":"0"},{"id":"42","name":"\u803f\u534e\u519b","header":"http:\/\/123.57.135.102\/xplan_headers\/cc.jpg","birthday":"0","gender":"0","height":"175","weight":"115","course_time":"0","pid":"1","pay_time":"1445450690","status":"0","iscontacted":"1","isfinished":"0"},{"id":"42","name":"\u803f\u534e\u519b","header":"http:\/\/123.57.135.102\/xplan_headers\/cc.jpg","birthday":"0","gender":"0","height":"175","weight":"115","course_time":"0","pid":"1","pay_time":"1445420390","status":"0","iscontacted":"1","isfinished":"0"}]}
+
+	<br><br>
+	course_time : 某一天的训练<br>
+	pay_time : 付款时间<br>
+	status ： status 计划的状态     <br>  
+0        未付过费          未付费 	<br>
+1        已付过费          最新付款	<br>
+2        完成测试          完成测试	<br>
+3        课程好             日常督促    （今天，明天有训练，昨天已完成训练但是没有联系的和已联系的）<br>
+4        快过期              更新计划    (明天或者后天没有计划的)
+
+</p>
+	<h3>添加课程：/Course/addCourse</h3>
+	param: 生成下面的json字符串传过去就行了<br>
+		{
+	"xtoken":"35dsakfsdjfcvjdsajfkdsf234",
+    "coachid":23,
+    "uid":333,
+    "pid":11,
+    "time":3825843,
+    "action_list":[
+        {
+            "actionid":34,
+            "group":3,
+            "count":20,
+            "order":1
+        },
+        {   
+            "actionid":34,
+            "group":3,
+            "count":20,
+            "order":1
+        }
+    ]
+}
+
+<p>
+
+
+
+</p>
+
+
+</html>
+
